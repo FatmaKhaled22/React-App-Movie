@@ -1,0 +1,52 @@
+.body {
+    background-color: #622663;
+}
+
+.movies .card {
+
+    background-color: #ffffff00 !important;
+    border: none !important;
+    color: #fff !important;
+    box-shadow: 1px 1px 10px #aa6a6a;
+    border-radius: 20px;
+    height: 66vh;
+}
+
+.movies .card img {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.movies .card-body{
+    position: relative;
+}
+
+.movies .card-body p {
+    color: grey;
+    font-weight: bold;
+}
+
+.movies .container-rating{
+    position: absolute;
+    top: -30%;
+    left: 10%;
+}
+.movies .rating {
+    background-color: #fff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.movies .rating .progres {
+    margin: 2.5px;
+}
+
+.movies .rating .rate{
+    color: #622663;
+    font-size: 0.9rem !important;
+}
+/* Progress */
+.movies .rating .css-1rn30mb-MuiCircularProgress-root {
+    color: #622663 !important;
+}

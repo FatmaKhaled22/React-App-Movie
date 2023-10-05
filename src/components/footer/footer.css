@@ -1,0 +1,29 @@
+.footer {
+    background-color: #2e102e;
+    color: #fff;
+}
+
+.footer-sec .nav-item {
+    padding: 30px 20px;
+    cursor: pointer;
+}
+
+.footer-sec .nav-link:hover {
+    color: #aa6a6a !important;
+}
+
+.social-div i {
+    margin: auto;
+    color: #fff !important;
+}
+
+.social-div a {
+    background-color: #622663;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.social-div a:hover {
+    box-shadow: 1px 1px 10px #aa6a6a;
+}
