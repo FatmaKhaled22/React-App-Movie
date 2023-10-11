@@ -1,11 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getMovies } from "../../services/movieServices";
+import { getMoviesNow, getMoviesPop, getMoviesTop, getMoviesUpcom } from "../../services/movieServices";
 
-const initailMovies = await getMovies();
+const initailMoviesPop = await getMoviesPop();
+const initailMoviesUpcom = await getMoviesUpcom();
+const initailMoviesTop = await getMoviesTop();
+const initailMoviesNow = await getMoviesNow();
+
+const initialState = {
+  popular : initailMoviesPop,
+  upcoming : initailMoviesUpcom,
+  toprated : initailMoviesTop,
+  nowplaying : initailMoviesNow
+}
 
 export const movieSlice = createSlice({
   name: 'movies',
-  initialState: initailMovies,
+  initialState: initialState,
   reducers: {
     setMovies: (state, action) => {
       return state = action.payload;

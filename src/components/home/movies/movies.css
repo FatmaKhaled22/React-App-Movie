@@ -1,15 +1,10 @@
-.body {
-    background-color: #622663;
-}
-
 .movies .card {
-
     background-color: #ffffff00 !important;
     border: none !important;
     color: #fff !important;
     box-shadow: 1px 1px 10px #aa6a6a;
     border-radius: 20px;
-    height: 66vh;
+    height: 65vh;
 }
 
 .movies .card img {
@@ -19,6 +14,11 @@
 
 .movies .card-body{
     position: relative;
+}
+
+.movies .card-body a{
+    text-decoration: none;
+    color: #fff;
 }
 
 .movies .card-body p {
@@ -31,6 +31,8 @@
     top: -30%;
     left: 10%;
 }
+
+/* Progress */
 .movies .rating {
     background-color: #fff;
     width: 45px;
@@ -46,7 +48,15 @@
     color: #622663;
     font-size: 0.9rem !important;
 }
-/* Progress */
+
 .movies .rating .css-1rn30mb-MuiCircularProgress-root {
     color: #622663 !important;
+}
+
+/* slider btn */
+
+.movies .bi{
+    z-index: 20;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
