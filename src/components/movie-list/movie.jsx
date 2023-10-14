@@ -3,19 +3,19 @@ import { CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./movies.css";
 
-function Movies({ movie }) {
+function Movie({ movie }) {
 
 
   const url_img = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
 
   return (
     <>
-      <div className="col m-2" key={movie.id}>
+      <div className="col" key={movie.id}>
         <div className="card">
           <img src={url_img} className="card-img-top" alt="movie-img" />
           <div className="card-body my-2">
             <h6 className="card-title">
-              <Link to={`/details/${movie.id}`}>{movie.title}</Link>
+              <Link to={`/movie/details/${movie.id}`}>{movie.title}</Link>
             </h6>
             <p className="card-text mb-2">{movie.release_date}</p>
             <div className="container-rating">
@@ -31,4 +31,4 @@ function Movies({ movie }) {
   );
 }
 
-export default Movies;
+export default Movie;

@@ -4,7 +4,7 @@ import axiosInstance from "../../config/instance";
 import "./details.css";
 import { CircularProgress } from "@mui/material";
 
-function Details() {
+function Details_Movie() {
   const { id } = useParams();
   console.log("id from Movie :  --->", id);
 
@@ -119,4 +119,4 @@ function Details() {
   );
 }
 
-export default Details;
+export default Details_Movie;

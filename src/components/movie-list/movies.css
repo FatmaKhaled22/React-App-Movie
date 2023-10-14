@@ -12,6 +12,10 @@
     border-top-left-radius: 20px;
 }
 
+.movies .card img:hover{
+    opacity: 0.7;
+}
+
 .movies .card-body{
     position: relative;
 }

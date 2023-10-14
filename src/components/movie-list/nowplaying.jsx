@@ -1,11 +1,11 @@
 import React from "react";
-import { Carousel } from '@trendyol-js/react-carousel';
 import { useSelector } from "react-redux";
-import Movies from "./movies";
+import { Carousel } from '@trendyol-js/react-carousel';
+import Movie from "./movie";
 import './movies.css';
 
 
-function Movies_Top() {
+function Movies_Now() {
 
   function RightArrow(){
     return(<i className="bi bi-arrow-right-circle position-absolute top-50 start-100 translate-middle"></i>);
@@ -15,7 +15,7 @@ function Movies_Top() {
     return(<i className="bi bi-arrow-left-circle position-absolute top-50 start-0 translate-middle"></i>);
   }
 
-  const movies = useSelector((state) => state.movies.toprated.results);
+  const movies = useSelector((state) => state.movies.nowplaying.results);
   console.log("Movies ---->" , movies);
 
 
@@ -26,7 +26,9 @@ function Movies_Top() {
           <Carousel show={5} slide={1} swiping={true} rightArrow={<RightArrow/>} leftArrow={<LeftArrow/>} className="mt-0">
             {movies.map((movie)=>{
               return(
-                <Movies movie={movie} key={movie.id}/>
+                <div className="m-2">
+                  <Movie movie={movie} key={movie.id}/>
+                </div>
               )
             })}
           </Carousel>
@@ -36,4 +38,4 @@ function Movies_Top() {
   );
 }
 
-export default Movies_Top;
+export default Movies_Now;
