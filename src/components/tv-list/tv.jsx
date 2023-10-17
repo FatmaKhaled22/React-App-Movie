@@ -3,14 +3,14 @@ import { CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import '../movie-list/movies.css';
 
-function TvShows({ tv }) {
+function Tv({ tv }) {
 
 
   const url_img = `https://image.tmdb.org/t/p/w500/${tv.poster_path}`;
 
   return (
     <>
-      <div className="col m-2" key={tv.id}>
+      <div className="col" key={tv.id}>
         <div className="card">
           <img src={url_img} className="card-img-top" alt="tv-img" />
           <div className="card-body my-2">
@@ -31,4 +31,4 @@ function TvShows({ tv }) {
   );
 }
 
-export default TvShows;
+export default Tv;

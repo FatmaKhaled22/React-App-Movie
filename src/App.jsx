@@ -15,6 +15,9 @@ import Tv_Air from "./components/tv-list/onair";
 import Tv_Today from "./components/tv-list/today";
 import Home_Movie from "./components/home/home-movie";
 import Movies from "./components/movies/movies";
+import Tv_Shows from "./components/tv-shows/tv-shows";
+import Search from "./components/search/search";
+import People from "./components/people/people";
 
 function App() {
   return (
@@ -41,6 +44,9 @@ function App() {
         {/* </Route> */}
         ///////////////////////////////////////////////////////////////////
         <Route path="/movies" element={<Movies />}/>
+        <Route path="/tv" element={<Tv_Shows />}/>
+        <Route path="/people" element={<People />}/>
+        <Route path="/search" element={<Search />}/>
         <Route path="/movie/details/:id" element={<Details_Movie />} />
         <Route path="/tv/details/:id" element={<Details_Tv />} />
       </Routes>

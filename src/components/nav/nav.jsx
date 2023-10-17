@@ -24,6 +24,9 @@ function Navbar() {
               <li className="nav-item">
                 <NavLink to="/tv" className="nav-link">TV Shows</NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink to="/people" className="nav-link">People</NavLink>
+              </li>
               <div id="navy">
                 <ul className="navbar-nav d-flex align-content-center flex-wrap nav">
                   <ul className="navbar-nav nav">

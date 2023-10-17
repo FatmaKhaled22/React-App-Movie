@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Movie from "../movie-list/movie";
 import { useSelector } from "react-redux";
 import "../movie-list/movies.css";
+import './style.css';
 
 
 function Movies() {
@@ -9,19 +10,47 @@ function Movies() {
   const movies = useSelector((state) => state.movies.popular.results);
   console.log("Movies ---->", movies);
 
+  const [SortOption, setSortOption] = useState('');
+
+  const handleSortChange = (event) => {
+    const value = event.target.value;
+    setSortOption(value);
+    console.log('value = ',value);
+  };
+
+  const sortedMovies = [...movies];
+
+  switch(SortOption){
+    case 'DES-Rate':
+      sortedMovies.sort((a, b) => b.vote_average - a.vote_average);
+    break
+    case "ASC-Rate":
+      sortedMovies.sort((a, b) => a.vote_average - b.vote_average);
+    break
+    case 'ASC-Alph':
+      sortedMovies.sort((a, b) => a.title > b.title ? 1 : -1);
+    break
+    case 'DES-Alph':
+      sortedMovies.sort((a, b) => a.title > b.title ? -1 : 1);
+    break
+  }
+
+
   return (
     <>
       <div className="container movies">
-        <div className="sec-select my-5 d-flex justify-content-between">
-            <h3>Explore Movies</h3>
-            <select className="form-select" aria-label="Default select example">
-                <option defaultValue>Sort By</option>
-                <option value="1">Ascending (A - Z)</option>
-                <option value="2">Descending (Z - A)</option>
-            </select>
+        <div className="select-sec mb-4 d-flex justify-content-between">
+          <h3>Explore Movies</h3>
+          <select className="form-select" value={SortOption} onChange={handleSortChange}>
+            <option defaultValue>Sort By</option>
+            <option value="ASC-Alph">Ascending (A - Z)</option>
+            <option value="DES-Alph">Descending (Z - A)</option>
+            <option value="ASC-Rate">Ascending By Rate</option>
+            <option value="DES-Rate">Descending By Rate</option>
+          </select>
         </div>
         <div className="row row-cols-1 row-cols-md-4 row-cols-lg-5 g-4 mb-5">
-          {movies.map((movie) => {
+          {sortedMovies.map((movie) => {
             return <Movie movie={movie} key={movie.id} />
           })}
         </div>

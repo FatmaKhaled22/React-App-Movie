@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Carousel } from '@trendyol-js/react-carousel';
-import TvShows from "./tv";
+import Tv from "./tv";
 import '../movie-list/movies.css';
 
 function Tv_Today() {
@@ -25,7 +25,9 @@ function Tv_Today() {
           <Carousel show={5} slide={1} swiping={true} rightArrow={<RightArrow/>} leftArrow={<LeftArrow/>} className="mt-0">
             {tvshows.map((tvshow)=>{
               return(
-                <TvShows tv={tvshow} key={tvshow.id}/>
+                <div className="m-2">
+                  <Tv tv={tvshow} key={tvshow.id}/>
+                </div>
               )
             })}
           </Carousel>
