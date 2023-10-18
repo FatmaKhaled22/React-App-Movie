@@ -71,3 +71,45 @@
     width: 65px !important;
     height: 65px !important;
 }
+
+/* cast */
+
+.opacity-layer {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(180deg,#62266300 0%,#622663 90%);
+    /* position: absolute;
+    bottom: 0;
+    left: 0; */
+}
+.cast{
+    margin-left: 12%;
+}
+.cast .card {
+    background-color: #ffffff00 !important;
+    border: none !important;
+    color: #fff !important;
+    border-radius: 20px;
+}
+
+.cast .card img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.cast .card img:hover{
+    opacity: 0.7;
+    transition: all ease .5s;
+}
+
+.cast .card-body a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.cast .card-body p {
+    color: grey;
+    font-weight: bold;
+}

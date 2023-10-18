@@ -1,0 +1,29 @@
+.details-people img{
+    height: 72vh;
+}
+
+.details-people .subtitle{
+    color: rgb(158, 157, 157);
+    font-weight: bold;
+}
+
+.details-people ul{
+    list-style-type: none;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.details-people .genres li{
+    padding: 5px 10px;
+    background-color: #2e102e;
+}
+
+.details-people .info li{
+    margin-right: 2rem;
+}
+
+#info{
+    color: rgb(158, 157, 157);
+}
+

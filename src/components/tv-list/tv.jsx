@@ -14,13 +14,13 @@ function Tv({ tv }) {
         <div className="card">
           <img src={url_img} className="card-img-top" alt="tv-img" />
           <div className="card-body my-2">
-            <h6 className="card-title">
+            <h6 className="card-title mt-1">
               <Link to={`/tv/details/${tv.id}`}>{tv.name}</Link>
             </h6>
             <p className="card-text mb-2">{tv.first_air_date}</p>
             <div className="container-rating">
               <div className="rating position-relative">
-                <span className="rate position-absolute top-50 start-50 translate-middle">{tv.vote_average * 10}%</span>
+                <span className="rate position-absolute top-50 start-50 translate-middle">{Math.round(tv.vote_average * 10)}%</span>
                 <CircularProgress variant="determinate" value={tv.vote_average * 10} className="progres"/>
               </div>
             </div>

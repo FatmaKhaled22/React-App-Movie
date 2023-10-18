@@ -18,6 +18,9 @@ import Movies from "./components/movies/movies";
 import Tv_Shows from "./components/tv-shows/tv-shows";
 import Search from "./components/search/search";
 import People from "./components/people/people";
+import Trend_Movies from "./components/trending/trend-movie";
+import Trend_Tv from "./components/trending/trend-tv";
+import Details_People from "./components/details/details-people";
 
 function App() {
   return (
@@ -42,6 +45,8 @@ function App() {
             <Route path="today" element={<Tv_Today />} />
           </Route> 
         {/* </Route> */}
+        <Route path="/trend_movies" element={<Trend_Movies />} />
+        <Route path="/trend_tv" element={<Trend_Tv />} />
         ///////////////////////////////////////////////////////////////////
         <Route path="/movies" element={<Movies />}/>
         <Route path="/tv" element={<Tv_Shows />}/>
@@ -49,8 +54,9 @@ function App() {
         <Route path="/search" element={<Search />}/>
         <Route path="/movie/details/:id" element={<Details_Movie />} />
         <Route path="/tv/details/:id" element={<Details_Tv />} />
+        <Route path="/actor/details/:id" element={<Details_People />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

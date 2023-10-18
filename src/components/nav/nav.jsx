@@ -14,18 +14,18 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
           </button>
           <NavLink to="/home" className="nav-link">
-            <img src="/assets/img/logo4.png" alt="Logo" width="40" height="40" className="my-2"/><span className="px-3 logo-text">Movies</span>
+            <img src="/assets/img/logo4.png" alt="Logo" width="40" height="40" className="my-2"/><span className="px-3 logo-text align-middle">Movies</span>
           </NavLink>
           <div className="collapse navbar-collapse flex-grow-0" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <NavLink to="/movies" className="nav-link">Movies</NavLink>
+                <NavLink to="/movies" className="nav-link fw-bold"><i className="bi bi-film"> Movies</i></NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/tv" className="nav-link">TV Shows</NavLink>
+                <NavLink to="/tv" className="nav-link fw-bold"><i className="bi bi-tv"> TV Shows</i></NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/people" className="nav-link">People</NavLink>
+                <NavLink to="/people" className="nav-link fw-bold"><i className="bi bi-person-circle"> Femous</i></NavLink>
               </li>
               <div id="navy">
                 <ul className="navbar-nav d-flex align-content-center flex-wrap nav">

@@ -3,7 +3,7 @@
 }
 
 .select-sec select{
-    width: 30%;
+    width: 20%;
     border-radius: 20px;
     background-color: #622663;
     box-shadow: 1px 1px 15px #aa6a6a;
@@ -14,8 +14,6 @@
 
 .select-sec select option{
     border-radius: 20px;
-    /* color: #fff;
-    background-color: #873c89; */
     background-color: #fff;
     color: #bf38c4;
     border: none;
