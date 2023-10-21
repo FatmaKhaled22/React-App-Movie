@@ -75,15 +75,15 @@ function Details_People() {
           </div>
         </div>
         <div className="container movies">
-            <div className="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 p-3 my-4">
-                {/* <Carousel show={5} slide={1} swiping={true} rightArrow={<RightArrow/>} leftArrow={<LeftArrow/>} className="mt-0"> */}
-                    {acting.map((acting)=>{
-                        return(
-                            <People_Acting acting={acting} key={acting.id}/>
-                        )
-                    })}
-                {/* </Carousel> */}
-            </div>
+          <div className="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 p-3 my-4">
+            {/* <Carousel show={5} slide={1} swiping={true} rightArrow={<RightArrow/>} leftArrow={<LeftArrow/>} className="mt-0"> */}
+              {acting.map((acting)=>{
+                return(
+                  <People_Acting acting={acting} key={acting.id}/>
+                )
+              })}
+            {/* </Carousel> */}
+          </div>
         </div>
       </div>
     </div>

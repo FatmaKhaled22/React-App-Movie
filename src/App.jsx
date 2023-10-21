@@ -8,12 +8,10 @@ import Movies_Upcom from "./components/movie-list/upcom";
 import Movies_Now from "./components/movie-list/nowplaying";
 import Movies_Pop from "./components/movie-list/popular";
 import Tv_Pop from "./components/tv-list/poular";
-import Home_Tv from "./components/home/home-tv";
 import Details_Tv from "./components/details/details-tv";
 import Tv_Top from "./components/tv-list/toprated";
 import Tv_Air from "./components/tv-list/onair";
 import Tv_Today from "./components/tv-list/today";
-import Home_Movie from "./components/home/home-movie";
 import Movies from "./components/movies/movies";
 import Tv_Shows from "./components/tv-shows/tv-shows";
 import Search from "./components/search/search";
@@ -28,35 +26,27 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="home" element={<Home />}>
-          <Route path="/home/" element={<Movies_Pop />} />
-          {/* <Route path="movie" element={<Home_Movie />}> */}
-            <Route index path="popular" element={<Movies_Pop />} />
-            <Route path="top_rated" element={<Movies_Top />} />
-            <Route path="up_com" element={<Movies_Upcom />} />
-            <Route path="now_playing" element={<Movies_Now />} />
-          {/* </Route> */}
-
-          {/* <Route path="tv" element={<Home_Tv />}> */}
-            {/* <Route path="/home/tv/" element={<Tv_Pop />} /> */}
-            <Route index path="popular" element={<Tv_Pop />} />
-            <Route path="top_rated" element={<Tv_Top />} />
-            <Route path="air" element={<Tv_Air />} />
-            <Route path="today" element={<Tv_Today />} />
-          </Route> 
-        {/* </Route> */}
+        <Route path="home" element={<Home />} />
+        <Route path="/movies/popular" element={<Movies_Pop />} />
+        <Route path="/movies/top_rated" element={<Movies_Top />} />
+        <Route path="/movies/up_com" element={<Movies_Upcom />} />
+        <Route path="/movies/now_playing" element={<Movies_Now />} />
+        <Route path="/tv/popular" element={<Tv_Pop />} />
+        <Route path="/tv/top_rated" element={<Tv_Top />} />
+        <Route path="/tv/air" element={<Tv_Air />} />
+        <Route path="/tv/today" element={<Tv_Today />} />
         <Route path="/trend_movies" element={<Trend_Movies />} />
         <Route path="/trend_tv" element={<Trend_Tv />} />
         ///////////////////////////////////////////////////////////////////
-        <Route path="/movies" element={<Movies />}/>
-        <Route path="/tv" element={<Tv_Shows />}/>
-        <Route path="/people" element={<People />}/>
-        <Route path="/search" element={<Search />}/>
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/tv" element={<Tv_Shows />} />
+        <Route path="/people" element={<People />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/movie/details/:id" element={<Details_Movie />} />
         <Route path="/tv/details/:id" element={<Details_Tv />} />
         <Route path="/actor/details/:id" element={<Details_People />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

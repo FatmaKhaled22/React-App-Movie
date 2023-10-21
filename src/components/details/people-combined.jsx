@@ -10,7 +10,7 @@ function People_Acting({acting}) {
 
     return ( 
         <>
-        <div className="col " key={acting.id}>
+        <div className="col m-2" key={acting.id}>
             <div className="card">
                 <img src={img ? url_img_acting : `/assets/img/no-cover.png`} className="card-img-top" alt="tv-img" />
                 <div className="card-body my-1">

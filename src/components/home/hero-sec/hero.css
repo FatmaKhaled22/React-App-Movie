@@ -42,9 +42,18 @@
 
 #searchBtn{
     background-color: #622663;
+    background-color: #3c153c;
     padding: 8px 20px;
     border: none;
     outline: none;
+}
+
+.search-sec{
+    box-shadow: 2px 2px 10px #aa6a6a;
+}
+
+.form-control{
+    border-radius: 0 !important;
 }
 
 .opacity-layer {
@@ -67,6 +76,7 @@
     border-radius: 25px;
     padding: 8px 15px;
     box-shadow: 1px 1px 10px #aa6a6a;
+    color: #fff;
 }
 
 .sec-select a{
@@ -74,6 +84,6 @@
     text-decoration: none;
 }
 
-.sec-select .btn:hover{
+.sec-select .btn:hover ,.sec-select .active{
     background-color: #2e102e;
 }

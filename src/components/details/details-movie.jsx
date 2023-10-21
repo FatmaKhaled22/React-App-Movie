@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axiosInstance from "../../config/instance";
 import { CircularProgress } from "@mui/material";
+import Cast from "./cast";
 import "./details.css";
+
 
 function Details_Movie() {
 
@@ -30,7 +32,6 @@ function Details_Movie() {
     });
   }
 
-
   useEffect(() => {
     getMovie();
     getCast();
@@ -38,6 +39,8 @@ function Details_Movie() {
 
   const url_img = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
   const url_cover = `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`;
+  let img = movie.poster_path !== null ;
+  let img_cover = movie.backdrop_path !== null ;
 
   function timeConvert(n) {
     var num = n;
@@ -72,11 +75,12 @@ function Details_Movie() {
 
   return (
     <>
-    <div className="sec-details" style={{background:`url(${url_cover}) center/ cover no-repeat`}}>
-      <div className="container details">
+    <div className="card border-0">
+      <img className="card-img" src={img_cover ? url_cover : `/assets/img/no-background.PNG`} alt="Movie Cover"/>
+      <div className="container-fluid details card-img-overlay">
         <div className="row m-5 g-5" key={movie.id}>
           <div className="col-md-4 container-cover">
-            <img className="card-img-top mb-md-0 rounded" src={url_img} alt="Movie Cover"/>
+            <img className="card-img-top mb-md-0 rounded" src={img ? url_img : `/assets/img/no-cover.png`} alt="Movie Poster"/>
           </div>
           <div className="col-md-8">
             <h1>{movie.title} {formatDateYear(movie.release_date)}</h1>
@@ -108,33 +112,22 @@ function Details_Movie() {
               <li>Runtime : <span id="info">{timeConvert(movie.runtime)}</span></li>
             </ul><hr/>
             <p className="my-3"><i className="bi bi-badge-ad-fill"></i> Tagline : <span id="info">{movie.tagline}</span></p>
-            {/* <p className="my-2"><i className="bi bi-flag-fill"></i> Country : {movie.production_countries.map((c)=>{
-              return(
-                <span id="info">{c.name} , </span> 
-              )
-            })}</p> */}
-            <p className="my-3"><i className="bi bi-coin"></i> Budget : <span id="info">{formatMoney(movie.budget)}</span></p>
+            <p className="my-3"><i className="bi bi-coin"></i> Budget : <span id="info">{formatMoney(movie.budget)}</span></p> 
+            <div className="opacity"></div>
           </div>
-        </div>
-        <div className="cast">
-        <div className="row row-cols-1 row-cols-md-4 row-cols-lg-6 g-4 mb-5">
-          {cast.slice(0, 6).map((cast) => {
-            const url_img_cast = `https://image.tmdb.org/t/p/w500/${cast?.profile_path}`;
-            let img = cast.poster_path !== null ;
-            return (
-              <div className="col text-center" key={cast.id}>
-                <div className="card">
-                  <img src={img ? url_img_cast : '/assets/img/no-person.jpg'} className="card-img-top" alt="cast-img" />
-                  <div className="card-body my-2">
-                    <h6 className="card-title"><Link to={`/actor/details/${cast.id}`}>{cast.name}</Link></h6>
-                    <p className="card-text">{cast.character}</p>
-                  </div>
-                </div>
-              </div>
-            )
-          })}
+         
         </div>
       </div>
+    </div>
+
+    <div className="container cast">
+      <h1 className="mb-4">Top Cast</h1>
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6 g-4">
+        {cast.slice(0, 6).map((cast) => {
+          return (
+            <Cast cast={cast} key={cast.id}/>
+          )
+        })}
       </div>
     </div>
 
