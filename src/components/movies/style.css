@@ -30,3 +30,15 @@
 a{
     text-decoration: none !important;
 }
+
+.pagination .page-link{
+    border: none;
+    background-color: #2e102e;
+    box-shadow: 1px 1px 15px #aa6a6a;
+    color: #fff;
+    cursor: pointer;
+}
+.pagination .page-link:hover{
+    background-color: #622663;
+    color: #fff;
+}

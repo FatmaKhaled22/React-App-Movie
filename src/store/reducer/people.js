@@ -2,15 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getPeople } from './../../services/people';
 
 
-const initialState = await getPeople();
+const initialPeople = await getPeople();
+const initialState = {
+  initialPeople:initialPeople,
+  people:[],
+};
 
 export const peopleSlice = createSlice({
   name: 'people',
   initialState: initialState,
   reducers: {
     setPeople: (state, action) => {
-      return state = action.payload;
-    }
+      state.people = action.payload;
+    },
   }
 })
 

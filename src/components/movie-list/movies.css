@@ -26,7 +26,7 @@
     color: #fff;
 }
 
-.movies .card-body p {
+.movies .card-body p , .card-body span{
     color: grey;
     font-weight: bold;
 }

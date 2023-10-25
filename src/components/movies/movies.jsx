@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Movie from "../movie-list/movie";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getMoviesNow } from "../../services/movieServices";
+import { setMoviesNow } from "../../store/reducer/movies";
+import Pagination from "../paginate/paginate";
 import "../movie-list/movies.css";
 import './style.css';
 
 
 function Movies() {
 
-  const movies = useSelector((state) => state.movies.popular.results);
+  const movies = useSelector((state) => state.movies.nowplaying);
   console.log("Movies ---->", movies);
 
+  //////////////////////////////////////////////////
+  /// Handling Sort ///
   const [SortOption, setSortOption] = useState('');
 
   const handleSortChange = (event) => {
@@ -35,6 +40,28 @@ function Movies() {
     break
   }
 
+  ////////////////////////////////////////////////////////
+  /// Handling Paginate ///
+  const [page, setPage] = useState(1);
+  var dispatch = useDispatch();
+  
+  const fetchMovies = async (query) => {
+  
+    getMoviesNow(query).then((response) => {
+      const movies = response.results;
+      console.log("movies after paginate --->",movies);
+      dispatch(setMoviesNow(movies));
+      console.log("res paginate --->", response.results);
+      console.log("page--->",page);
+    }).catch((e) => {
+      console.log("error in fetch person --> ",e);
+    });
+  };
+  
+  useEffect(() => {
+    fetchMovies(page);
+  }, [page]);
+
 
   return (
     <>
@@ -54,6 +81,8 @@ function Movies() {
             return <Movie movie={movie} key={movie.id} />
           })}
         </div>
+        {/* Pagination */} 
+        <Pagination setPage={setPage} page={page}/>
       </div>
     </>
   );

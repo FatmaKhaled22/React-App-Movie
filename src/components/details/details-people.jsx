@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axiosInstance from "../../config/instance";
-import { Carousel } from '@trendyol-js/react-carousel';
 import People_Acting from "./people-combined";
 import "./details-people.css";
 
@@ -17,19 +16,19 @@ function Details_People() {
 
   const popularInfo = () =>{
     axiosInstance.get(`/person/${id}`).then((res) => {
-        console.log("details of people", res.data);
-        setPeople(res.data);
+      console.log("details of people", res.data);
+      setPeople(res.data);
     }).catch((err) => {
-        console.log("error ---->", err);
+      console.log("error ---->", err);
     });
   }
 
   const popularActing = () =>{
     axiosInstance.get(`/person/${id}/combined_credits`).then((res) => {
-        console.log("details of working_people", res.data);
-        setActing(res.data.cast);
+      console.log("details of working_people", res.data);
+      setActing(res.data.cast);
     }).catch((err) => {
-        console.log("error ---->", err);
+      console.log("error ---->", err);
     });
   }
 
@@ -45,15 +44,6 @@ function Details_People() {
     const [month, day, year] = formattedDate.split(' ');
     return `${month} ${day} ${year}`;
   }
-
-  function RightArrow(){
-    return(<i className="bi bi-arrow-right-circle position-absolute top-50 start-100 translate-middle"></i>);
-  }
-    
-  function LeftArrow(){
-    return(<i className="bi bi-arrow-left-circle position-absolute top-50 start-0 translate-middle"></i>);
-  }
-  
 
   return (
     <>
@@ -74,15 +64,16 @@ function Details_People() {
             </ul><hr/>
           </div>
         </div>
-        <div className="container movies">
-          <div className="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 p-3 my-4">
-            {/* <Carousel show={5} slide={1} swiping={true} rightArrow={<RightArrow/>} leftArrow={<LeftArrow/>} className="mt-0"> */}
-              {acting.map((acting)=>{
-                return(
-                  <People_Acting acting={acting} key={acting.id}/>
-                )
-              })}
-            {/* </Carousel> */}
+        <div className="container acting movies">
+          <h4 className="mb-4">See More 
+          <Link to={`/all_work/${people.id}`}><i className="bi bi-arrow-right align-middle"></i></Link>
+          </h4>
+          <div className="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 mb-5">
+            {acting.slice(0,5).map((acting)=>{
+              return(
+                <People_Acting acting={acting} key={acting.id}/>
+              )
+            })}
           </div>
         </div>
       </div>

@@ -27,9 +27,9 @@ export const getMoviesTop = async () => {
     console.log('error in getMovies service -> ', error)
   }
 }
-export const getMoviesNow = async () => {
+export const getMoviesNow = async (page) => {
   try {
-    const result = await axiosInstance.get(`/movie/now_playing`)
+    const result = await axiosInstance.get(`/movie/now_playing?page=${page}`)
     console.log('now ----->', result.data);
     return result.data;
   } catch (error) {

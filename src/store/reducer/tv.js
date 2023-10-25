@@ -8,9 +8,9 @@ const initailTvToday = await getTvToday();
 
 const initialState = {
   popular : initailTvPop,
-  onAir : initailTvAir,
   toprated : initailTvTop,
-  today : initailTvToday
+  today : initailTvToday,
+  onAir : []
 }
 
 export const tvSlice = createSlice({
@@ -19,10 +19,13 @@ export const tvSlice = createSlice({
   reducers: {
     setTvShows: (state, action) => {
       return state = action.payload;
+    },
+    setTvShowsonAir: (state, action) => {
+      state.onAir = action.payload;
     }
   }
 })
 
-export const { setTvShows } = tvSlice.actions;
+export const { setTvShows , setTvShowsonAir } = tvSlice.actions;
 
 export default tvSlice.reducer;

@@ -1,10 +1,37 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getPeople } from './../../services/people';
+import { setPeople } from "../../store/reducer/people";
+import Pagination from "../paginate/paginate";
+
 
 function People() {
-  const people = useSelector((state) => state.people.results);
+
+  const people = useSelector((state) => state.people.people);
   console.log("People ---->", people);
+
+  // //////////////////////////////////////////////////////
+  const [page, setPage] = useState(1);
+  var dispatch = useDispatch();
+
+  const fetchPeople = async (query) => {
+
+    getPeople(query).then((response) => {
+      const  people  = response.results;
+      console.log("people after paginate --->",people);
+      dispatch(setPeople(people));
+      console.log("res paginate --->", response.results);
+      console.log("page--->",page);
+    }).catch((e) => {
+      console.log("error in fetch person --> ",e);
+    });
+  };
+
+  useEffect(() => {
+    fetchPeople(page);
+  }, [page]);
+
 
   return (
     <>
@@ -29,7 +56,10 @@ function People() {
               </div>
             );
           })}
-        </div>
+      </div>
+
+      {/* Pagination */} 
+      <Pagination setPage={setPage} page={page}/>
       </div>
     </>
   );

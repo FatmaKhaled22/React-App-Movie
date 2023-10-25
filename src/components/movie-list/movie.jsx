@@ -5,13 +5,14 @@ import "./movies.css";
 
 function Movie({ movie }) {
 
-  const url_img = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+  const url_img = `https://image.tmdb.org/t/p/w500/${movie?.poster_path}`;
+  let img = movie.poster_path !== null ;
 
   return (
     <>
       <div className="col" key={movie.id}>
         <div className="card">
-          <img src={url_img} className="card-img-top" alt="movie-img" />
+          <img src={img ? url_img : `/assets/img/no-cover.png`} className="card-img-top" alt="movie-img" />
           <div className="card-body my-2">
             <h6 className="card-title mt-1">
               <Link to={`/movie/details/${movie.id}`}>{movie.title}</Link>

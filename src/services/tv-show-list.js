@@ -9,9 +9,9 @@ export const getTvToday = async () => {
     console.log('error in getTvToday service -> ', error)
   }
 }
-export const getTvAir = async () => {
+export const getTvAir = async (page) => {
   try {
-    const result = await axiosInstance.get(`tv/on_the_air`)
+    const result = await axiosInstance.get(`tv/on_the_air?page=${page}`)
     console.log('tv_air ---->', result.data);
     return result.data;
   } catch (error) {

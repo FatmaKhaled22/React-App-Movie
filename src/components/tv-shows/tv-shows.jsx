@@ -1,14 +1,18 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Tv from "../tv-list/tv";
+import { getTvAir } from "../../services/tv-show-list";
+import { setTvShowsonAir } from "../../store/reducer/tv";
+import Pagination from "../paginate/paginate";
 import "../movie-list/movies.css";
 
 function Tv_Shows() {
 
-  const tvshows = useSelector((state) => state.tvshows.popular.results);
+  const tvshows = useSelector((state) => state.tvshows.onAir);
   console.log("tv ---->", tvshows);
 
-  
+  //////////////////////////////////////////////////
+  /// Handling Sort ///
   const [SortOption, setSortOption] = useState('');
 
   const handleSortChange = (event) => {
@@ -17,7 +21,6 @@ function Tv_Shows() {
     console.log('value = ',value);
   };
 
-  
   const sortedTvShows = [...tvshows];
 
   switch(SortOption){
@@ -34,6 +37,28 @@ function Tv_Shows() {
       sortedTvShows.sort((a, b) => a.name > b.name ? -1 : 1);
     break
   }
+
+  ////////////////////////////////////////////////////////
+  /// Handling Paginate ///
+  const [page, setPage] = useState(1);
+  var dispatch = useDispatch();
+
+  const fetchTvShows = async (query) => {
+
+    getTvAir(query).then((response) => {
+      const tvshows = response.results;
+      console.log("movies after paginate --->",tvshows);
+      dispatch(setTvShowsonAir(tvshows));
+      console.log("res paginate --->", response.results);
+      console.log("page--->",page);
+    }).catch((e) => {
+      console.log("error in fetch person --> ",e);
+    });
+  };
+
+  useEffect(() => {
+    fetchTvShows(page);
+  }, [page]);
 
   return (
     <>
@@ -53,6 +78,8 @@ function Tv_Shows() {
             return <Tv tv={tvshow} key={tvshow.id} />
           })}
         </div>
+        {/* Pagination */} 
+        <Pagination setPage={setPage} page={page}/>
       </div>
     </>
   );

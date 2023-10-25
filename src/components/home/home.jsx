@@ -67,7 +67,7 @@ function Home() {
     
     <div className="container">
       <div className="sec-select m-4 d-flex justify-content-between">
-        <h1>What's Popular ?</h1>
+        <h2>What's Popular ?</h2>
         <div className="group-btn">
           <button onClick={handlePop1} className={activePop === "movie_pop btn" ? "active btn" : "btn"}>Movies </button>
           <button onClick={handlePop2} className={activePop === "tv_pop btn" ? "active btn" : "btn"}>Tv Shows</button>

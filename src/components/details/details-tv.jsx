@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axiosInstance from "../../config/instance";
 import { CircularProgress } from "@mui/material";
-import "./details.css";
 import Cast from "./cast";
+import Tv from "../tv-list/tv";
+import "./details.css";
 
 function Details_Tv() {
 
@@ -12,6 +13,7 @@ function Details_Tv() {
 
   const [tv, setTv] = useState([]);
   const [cast, setCast] = useState([]);
+  const [recommend, setRecommend] = useState([]);
 
   const getMovie = () =>{
     axiosInstance.get(`/tv/${id}`).then((res) => {
@@ -31,11 +33,21 @@ function Details_Tv() {
     });
   }
 
+  const getRecommend = () =>{
+    axiosInstance.get(`/tv/${id}/recommendations`).then((res) => {
+      console.log("recommend of movie", res.data);
+      setRecommend(res.data.results);
+    }).catch((err) => {
+      console.log("error ---->", err);
+    });
+  }
+
 
   useEffect(() => {
     getMovie();
     getCast();
-  }, []);
+    getRecommend();
+  }, [id]);
 
 
   const url_img = `https://image.tmdb.org/t/p/w500/${tv.poster_path}`;
@@ -102,22 +114,30 @@ function Details_Tv() {
               <li>Number Of Seasons : <span id="info">{tv.number_of_seasons}</span></li>
             </ul><hr/>
             <p className="my-3"><i className="bi bi-badge-ad-fill"></i> Tagline : <span id="info">{tv.tagline}</span></p>
-            
           </div>
-          
         </div>
-        
       </div>
       <div className="opacity"></div>
     </div>
 
     
-    <div className="container cast">
+    <div className="container cast mb-5">
       <h1 className="mb-4">Top Cast</h1>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6 g-4">
         {cast.slice(0, 6).map((cast) => {
           return (
             <Cast cast={cast} key={cast.id}/>
+          )
+        })}
+      </div>
+    </div>
+
+    <div className="container movies mb-5">
+      <h3 className="mb-4">Recommendations</h3>
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+        {recommend.length == 0 ? <h4 className="my-5" style={{textAlign:'center',width:'100%'}}>Not any Recommended yet</h4> : recommend.slice(0,5).map((tvshow)=>{
+          return(
+            <Tv tv={tvshow} key={tvshow.id}/>
           )
         })}
       </div>
