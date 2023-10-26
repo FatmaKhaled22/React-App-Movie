@@ -119,9 +119,6 @@
     .sec-select h1 , .sec-select h2{
         margin-bottom: 15px;
     }
-    .sec-select .btn {
-        padding: 5px 12px;
-    }
     .text-hero h2{
         font-size: 1.8rem;
     }
@@ -132,9 +129,6 @@
 @media only screen and (max-width: 350px) {
     .text-hero .sec-select .btn{
         letter-spacing: 1.2px;
-    }
-    .sec-select .btn {
-        padding: 5px 8px;
     }
     .text-hero h2{
         font-size: 1.5rem;
