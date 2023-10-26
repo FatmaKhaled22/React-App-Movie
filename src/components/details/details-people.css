@@ -1,7 +1,6 @@
-.details-people img{
-    height: 72vh;
+.details-people{
+    margin-top: 12vh;
 }
-
 .details-people .subtitle{
     color: rgb(158, 157, 157);
     font-weight: bold;
@@ -29,4 +28,38 @@
 
 a{
     color: #fff !important;
+}
+
+.acting{
+    margin-top: 12vh;
+}
+.name1{
+    display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+    .name1 , .name2{
+        font-size: 1.8rem;
+    }
+    .details-people ul{
+        flex-wrap: wrap;
+    }
+    .details-people ul li{
+        margin: 5px 0px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .details-people {
+        max-width: 1000px !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .name1{
+        display: block;
+    }
+    .name2{
+        display: none;
+    }
 }

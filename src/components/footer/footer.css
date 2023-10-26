@@ -27,3 +27,15 @@
 .social-div a:hover {
     box-shadow: 1px 1px 10px #aa6a6a;
 }
+
+@media only screen and (max-width: 550px) {
+    .footer-sec{
+        font-size: 3vw;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .footer li{
+        padding: 2px;
+    }
+
+}

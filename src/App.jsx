@@ -20,6 +20,7 @@ import Trend_Movies from "./components/trending/trend-movie";
 import Trend_Tv from "./components/trending/trend-tv";
 import Details_People from "./components/details/details-people";
 import All_Work_Acting from './components/details/all-work-poeple';
+import NotFound from "./components/not-found/not-found";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
         <Route path="/tv/details/:id" element={<Details_Tv />} />
         <Route path="/actor/details/:id" element={<Details_People />} />
         <Route path="/all_work/:id" element={<All_Work_Acting />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>

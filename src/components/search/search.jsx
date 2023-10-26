@@ -33,7 +33,7 @@ function Search() {
   return (
     <>
       <div className="container movies">
-        <div className="mb-5 d-flex flex-row search-sec" style={{marginTop:"7%"}}>
+        <div className="mb-5 d-flex flex-row search-sec" style={{marginTop:"12vh"}}>
           <input
             className="form-control form-control-lg rounded-start"
             type="text" placeholder="Search for a movie or tv show........."
@@ -42,8 +42,8 @@ function Search() {
           <button id="searchBtn" className="rounded-end"onClick={resultSearch}><i className="bi bi-search"></i></button>
         </div>
         <h2 className="mb-4">Search result of "{searchValue}"</h2>
-        <div className="row row-cols-1 row-cols-md-4 row-cols-lg-5 g-4 mb-5">
-          {searchMulti.length == 0 ? <h1 style={{textAlign:'center',width:'100%'}}>Search to show results</h1> : searchMulti.map((multi) => {
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 mb-5">
+          {searchMulti.length == 0 ? <h1 style={{textAlign:'center',width:'100%' ,height:"23vh"}}>Search to show results</h1> : searchMulti.map((multi) => {
             return (
               <Result_Search multi={multi} key={multi.id}/>
             )

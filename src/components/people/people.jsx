@@ -35,14 +35,14 @@ function People() {
 
   return (
     <>
-      <div className="container movies mb-5" style={{marginTop:"5%"}}>
+      <div className="container movies mb-5" style={{marginTop:"12vh"}}>
         <h2 className="my-4">Popular People</h2>
-        <div className="row row-cols-1 row-cols-md-4 row-cols-lg-5 g-4 mb-5">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 mb-5">
           {people.map((p) => {
             const url_img = `https://image.tmdb.org/t/p/w500/${p.profile_path}`;
             return (
               <div className="col" key={p.id}>
-                <div className="card" style={{height:"70vh"}}>
+                <div className="card">
                   <img src={url_img} className="card-img-top" alt="person-img" />
                   <div className="card-body">
                     <h6 className="card-title"><Link to={`/actor/details/${p.id}`}>{p.name}</Link></h6>

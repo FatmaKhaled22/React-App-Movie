@@ -1,9 +1,9 @@
 .select-sec{
-    margin-top: 7% !important;
+    margin-top: 14vh !important;
 }
 
 .select-sec select{
-    width: 20%;
+    width: 25%;
     border-radius: 20px;
     background-color: #622663;
     box-shadow: 1px 1px 15px #aa6a6a;
@@ -30,7 +30,9 @@
 a{
     text-decoration: none !important;
 }
-
+.Page{
+    margin-left: 40vw;
+}
 .pagination .page-link{
     border: none;
     background-color: #2e102e;
@@ -41,4 +43,26 @@ a{
 .pagination .page-link:hover{
     background-color: #622663;
     color: #fff;
+}
+
+@media only screen and (max-width: 1000px) {
+    .select-sec select{
+        width: 40%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .Page{
+        margin-left: 30vw;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .select-sec{
+        flex-direction: column;
+    }
+    .select-sec h3{
+        margin-bottom: 20px;
+    }
+    .select-sec select{
+        width: 100%;
+    }
 }

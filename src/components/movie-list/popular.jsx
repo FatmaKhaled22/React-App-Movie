@@ -21,7 +21,7 @@ function Movies_Pop() {
   return (
     <>
       <div className="container movies">
-        <div className="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 p-3">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 p-3">
           <Carousel show={5} slide={1} swiping={true} rightArrow={<RightArrow/>} leftArrow={<LeftArrow/>} className="mt-0">
             {movies.map((movie)=>{
               return(

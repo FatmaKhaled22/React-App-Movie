@@ -53,7 +53,6 @@ function Details_Tv() {
   const url_img = `https://image.tmdb.org/t/p/w500/${tv.poster_path}`;
   const url_cover = `https://image.tmdb.org/t/p/original/${tv.backdrop_path}`;
   let img = tv.poster_path !== null ;
-  let img_cover = tv.backdrop_path !== null ;
 
   function formatDate(date) {
     const options = { day: '2-digit', month: 'short', year: 'numeric' };
@@ -73,15 +72,16 @@ function Details_Tv() {
 
   return (
     <>
-    <div className="card border-0">
-      <img className="card-img" src={img_cover ? url_cover : `/assets/img/no-background.PNG`} alt="Tv Cover"/>
-      <div className="container-fluid details card-img-overlay">
-        <div className="row m-5 g-5" key={tv.id}>
-          <div className="col-md-4 container-cover">
-            <img className="card-img-top mb-md-0 rounded" src={img ? url_img : `/assets/img/no-cover.png`} alt="tv Poster"/>
+    <section>
+      <div className="container-fluid details px-0" style={{background:`url(${url_cover}) center/ cover no-repeat`}}>
+      <div className="over-lay">
+        <div className="row m-5 cont" key={tv.id}>
+          <div className="col-md-4 container-cover mb-5">
+            <h1 className="name1 my-4">{tv.name} {formatDateYear(tv.first_air_date)}</h1>
+            <img className="card-img-top rounded" src={img ? url_img : `/assets/img/no-cover.png`} alt="tv Poster"/>
           </div>
           <div className="col-md-8">
-            <h1>{tv.name} {formatDateYear(tv.first_air_date)}</h1>
+            <h1 className="name2">{tv.name} {formatDateYear(tv.first_air_date)}</h1>
             {/* <ul className="mb-3 genres">
               {tv.genres.map((g)=>{
                 return(
@@ -102,7 +102,7 @@ function Details_Tv() {
                 <CircularProgress variant="determinate" value={tv.vote_average * 10} className="progres"/>
               </div>
             </div>
-            <h3>Overview</h3>
+            <h3 className="mb-3">Overview</h3>
             <p className="mb-5">{tv.overview}</p>
             <ul className="info">
               <li>Status : <span id="info">{tv.status}</span></li>
@@ -116,9 +116,10 @@ function Details_Tv() {
             <p className="my-3"><i className="bi bi-badge-ad-fill"></i> Tagline : <span id="info">{tv.tagline}</span></p>
           </div>
         </div>
+        <div className="opacity"></div>
+        </div>
       </div>
-      <div className="opacity"></div>
-    </div>
+    </section>
 
     
     <div className="container cast mb-5">
@@ -134,7 +135,7 @@ function Details_Tv() {
 
     <div className="container movies mb-5">
       <h3 className="mb-4">Recommendations</h3>
-      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
         {recommend.length == 0 ? <h4 className="my-5" style={{textAlign:'center',width:'100%'}}>Not any Recommended yet</h4> : recommend.slice(0,5).map((tvshow)=>{
           return(
             <Tv tv={tvshow} key={tvshow.id}/>

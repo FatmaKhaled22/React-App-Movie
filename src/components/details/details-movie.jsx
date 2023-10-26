@@ -52,7 +52,6 @@ function Details_Movie() {
   const url_img = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
   const url_cover = `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`;
   let img = movie.poster_path !== null ;
-  let img_cover = movie.backdrop_path !== null ;
 
   function timeConvert(n) {
     var num = n;
@@ -87,15 +86,16 @@ function Details_Movie() {
 
   return (
     <>
-    <div className="card border-0">
-      <img className="card-img" src={img_cover ? url_cover : `/assets/img/no-background.PNG`} alt="Movie Cover"/>
-      <div className="container-fluid details card-img-overlay">
-        <div className="row m-5 g-5" key={movie.id}>
-          <div className="col-md-4 container-cover">
-            <img className="card-img-top mb-md-0 rounded" src={img ? url_img : `/assets/img/no-cover.png`} alt="Movie Poster"/>
+    <section>
+      <div className="container-fluid details px-0" style={{background:`url(${url_cover}) center/ cover no-repeat`}}>
+        <div className="over-lay">
+        <div className="row m-5 cont" key={movie.id}>
+          <div className="col-md-4 container-cover mb-5">
+            <h1 className="name1 my-4">{movie.title} {formatDateYear(movie.release_date)}</h1>
+            <img className="card-img-top rounded" src={img ? url_img : `/assets/img/no-cover.png`} alt="Movie Poster"/>
           </div>
           <div className="col-md-8">
-            <h1>{movie.title} {formatDateYear(movie.release_date)}</h1>
+            <h1 className="name2">{movie.title} {formatDateYear(movie.release_date)}</h1>
             {/* <ul className="mb-3 genres">
               {movie.genres.map((g)=>{
                 return(
@@ -116,7 +116,7 @@ function Details_Movie() {
                 <CircularProgress variant="determinate" value={movie.vote_average * 10} className="progres"/>
               </div>
             </div>
-            <h3>Overview</h3>
+            <h3 className="mb-3">Overview</h3>
             <p className="mb-5">{movie.overview}</p>
             <ul className="info">
               <li>Status : <span id="info">{movie.status}</span></li>
@@ -125,16 +125,18 @@ function Details_Movie() {
             </ul><hr/>
             <p className="my-3"><i className="bi bi-badge-ad-fill"></i> Tagline : <span id="info">{movie.tagline}</span></p>
             <p className="my-3"><i className="bi bi-coin"></i> Budget : <span id="info">{formatMoney(movie.budget)}</span></p> 
-            <div className="opacity"></div>
+            
           </div>
          
         </div>
+        <div className="opacity"></div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div className="container cast mb-4">
+    <div className="container cast">
       <h1 className="mb-4">Top Cast</h1>
-      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6 g-4">
+      <div className="row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-6">
         {cast.slice(0, 6).map((cast) => {
           return (
             <Cast cast={cast} key={cast.id}/>
@@ -143,9 +145,9 @@ function Details_Movie() {
       </div>
     </div>
 
-    <div className="container movies mb-5">
+    <div className="container movies my-5 recommend">
       <h3 className="mb-4">Recommendations</h3>
-      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
         {recommend.length == 0 ? <h4 className="my-5" style={{textAlign:'center',width:'100%'}}>Not any Recommended yet</h4> : recommend.slice(0,5).map((movie)=>{
           return(
             <Movie movie={movie} key={movie.id}/>

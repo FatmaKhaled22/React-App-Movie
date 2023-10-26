@@ -13,7 +13,7 @@ function Pagination({page , setPage}) {
 
     return (  
       <>
-        <nav aria-label="Page navigation example"style={{marginLeft:"45%"}}>
+        <nav aria-label="Page navigation example" className='Page'>
           <ul className="pagination">
             <li className="page-item mx-2">
               <a className="page-link"  aria-label="Previous" 
@@ -24,7 +24,7 @@ function Pagination({page , setPage}) {
             <li className="page-item">
               <a className="page-link" aria-label="Next" 
               onClick={()=>handleNext()}>
-                <span aria-hidden="true" className="paginate">Next</span>
+              <span aria-hidden="true" className="paginate">Next</span>
               </a>
             </li>
           </ul>

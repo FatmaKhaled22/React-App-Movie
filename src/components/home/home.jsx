@@ -43,7 +43,7 @@ function Home() {
     <Hero/>
 
     <div className="container">
-      <div className="sec-select m-4 d-flex justify-content-between">
+      <div className="sec-select home-btn m-4">
         <h1>Trending</h1>
         <div className="group-btn">
           <button onClick={handleTrend1} className={activeTrend === "movie_trend btn" ? "active btn" : "btn"}>Movies </button>
@@ -54,7 +54,7 @@ function Home() {
     {activeTrend === "movie_trend" ? <Trend_Movies /> : <Trend_Tv />}
 
     <div className="container">
-      <div className="sec-select m-4 d-flex justify-content-between">
+      <div className="sec-select home-btn m-4">
         <h1>Top Rated</h1>
         <div className="group-btn">
           <button onClick={handleTop1} className={activeTop === "movie_top btn" ? "active btn" : "btn"}>Movies </button>
@@ -66,7 +66,7 @@ function Home() {
 
     
     <div className="container">
-      <div className="sec-select m-4 d-flex justify-content-between">
+      <div className="sec-select home-btn m-4">
         <h2>What's Popular ?</h2>
         <div className="group-btn">
           <button onClick={handlePop1} className={activePop === "movie_pop btn" ? "active btn" : "btn"}>Movies </button>

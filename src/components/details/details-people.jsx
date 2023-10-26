@@ -49,12 +49,13 @@ function Details_People() {
     <>
     <div className="">
       <div className="container details-people">
-        <div className="row m-5 g-5" key={people.id}>
-          <div className="col-md-4 container-cover">
-            <img className="card-img-top mb-md-0 rounded" src={url_img} alt="people Cover"/>
+        <div className="row m-5" key={people.id}>
+          <div className="col-md-4 container-cover text-center">
+            <h1 className="name1">{people.name}</h1>
+            <img className="card-img-top rounded mt-3" src={url_img} alt="people Cover"/>
           </div>
           <div className="col-md-8">
-            <h1>{people.name}</h1>
+            <h1 className="name2">{people.name}</h1>
             <h4 className="my-4">Biography</h4>
             <p className="mb-5">{people.biography}</p>
             <ul className="info">
@@ -66,9 +67,9 @@ function Details_People() {
         </div>
         <div className="container acting movies">
           <h4 className="mb-4">See More 
-          <Link to={`/all_work/${people.id}`}><i className="bi bi-arrow-right align-middle"></i></Link>
+          <Link to={`/all_work/${people.id}`}> <i className="bi bi-arrow-right align-middle"></i></Link>
           </h4>
-          <div className="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 mb-5">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 mb-5">
             {acting.slice(0,5).map((acting)=>{
               return(
                 <People_Acting acting={acting} key={acting.id}/>

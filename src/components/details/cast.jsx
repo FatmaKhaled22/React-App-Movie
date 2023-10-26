@@ -8,7 +8,7 @@ function Cast({cast}) {
 
   return (
     <>
-      <div className="col text-center" key={cast.id}>
+      <div className="col p-1" key={cast.id}>
         <div className="card">
           <img src={img ? url_img_cast : "/assets/img/no-person.jpg"} className="card-img-top" alt="cast-img"/>
           <div className="card-body my-2">

@@ -73,7 +73,7 @@ function Tv_Shows() {
             <option value="DES-Rate">Descending <i className="bi bi-arrow-up"></i></option>
           </select>
         </div>
-        <div className="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 mb-5">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 mb-5">
           {sortedTvShows.map((tvshow) => {
             return <Tv tv={tvshow} key={tvshow.id} />
           })}

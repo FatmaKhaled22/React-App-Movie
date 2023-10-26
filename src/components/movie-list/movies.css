@@ -4,7 +4,6 @@
     color: #fff !important;
     box-shadow: 1px 1px 10px #aa6a6a;
     border-radius: 20px;
-    height: 65vh;
 }
 
 .movies .card img {
@@ -24,6 +23,20 @@
 .movies .card-body a{
     text-decoration: none;
     color: #fff;
+}
+
+.movies .card-body .card-title{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movies .card-body .card-title a:hover{
+    transition: all ease .5s;
+    color: #270c28 !important;
+    font-weight: bold;
 }
 
 .movies .card-body p , .card-body span{
