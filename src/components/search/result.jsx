@@ -18,8 +18,8 @@ function Result_Search({multi}) {
             <div className="card">
               <img src={type_img ? url_img2 : url_img} className="card-img-top" alt="multi-img" />
               <div className="card-body">
-                <h6 className="card-title">{multi.title}{multi.name}</h6>
-                <p className="card-text mb-2">{multi.release_date}{multi.first_air_date}</p>
+                <h6 className="card-title">{multi.title || multi.name}</h6>
+                <p className="card-text mb-2">{multi.release_date || multi.first_air_date}</p>
               </div>
             </div>
           </div>

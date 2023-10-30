@@ -13,7 +13,7 @@
 
 .movies .card img:hover{
     opacity: 0.7;
-    transition: all ease .5s;
+    transition: all ease-in-out .5s;
 }
 
 .movies .card-body{
@@ -77,4 +77,8 @@
     z-index: 20;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+.bi-heart , .bi-heart-fill{
+    color: red !important;
 }

@@ -23,7 +23,7 @@ function People_Acting({acting}) {
             <div className="card">
                 <img src={img ? url_img_acting : `/assets/img/no-cover.png`} className="card-img-top" alt="tv-img" />
                 <div className="card-body my-1">
-                    <h6 className="card-title"><Link to={type}>{acting.name}{acting.title}</Link> <span>{formatDateYear(date)}</span></h6>
+                    <h6 className="card-title"><Link to={type}>{acting.name || acting.title}</Link> <span>{formatDateYear(date)}</span></h6>
                 </div>
             </div>
         </div>

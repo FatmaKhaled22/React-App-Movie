@@ -25,6 +25,9 @@ function Navbar() {
           <div className="collapse navbar-collapse flex-grow-0" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
+                <NavLink to="/fav" className="nav-link fw-bold"><i className="bi bi-heart text-light"> Favorites</i></NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink to="/movies" className="nav-link fw-bold"><i className="bi bi-film"> Movies</i></NavLink>
               </li>
               <li className="nav-item">

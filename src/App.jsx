@@ -21,6 +21,7 @@ import Trend_Tv from "./components/trending/trend-tv";
 import Details_People from "./components/details/details-people";
 import All_Work_Acting from './components/details/all-work-poeple';
 import NotFound from "./components/not-found/not-found";
+import Favorites from "./components/favorites/fav";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path="/tv" element={<Tv_Shows />} />
         <Route path="/people" element={<People />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/fav" element={<Favorites />} />
         <Route path="/movie/details/:id" element={<Details_Movie />} />
         <Route path="/tv/details/:id" element={<Details_Tv />} />
         <Route path="/actor/details/:id" element={<Details_People />} />
