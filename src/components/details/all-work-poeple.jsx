@@ -10,8 +10,8 @@ function All_Work_Acting() {
     const { id } = useParams();
     console.log("id from people :  --->", id);
 
-    const people = useSelector((state) => state.people.initialPeople.results.find((people)=> people.id == id));
-    console.log("People ---->", people);
+    // const people = useSelector((state) => state.people.initialPeople.results.find((people)=> people.id == id));
+    // console.log("People ---->", people);
 
     const [acting, setActing] = useState([]);
   
@@ -28,7 +28,7 @@ function All_Work_Acting() {
     return ( 
         <>
         <div className="container acting movies">
-          <h2 className='mb-4'>"{people?.name}" Acting in</h2>
+          <h2 className='mb-4'>Acting in</h2>
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 mb-5">
             {acting.map((acting)=>{
               return(

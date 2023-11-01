@@ -8,7 +8,8 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg px-3 py-1">
         <div className="container">
           <NavLink to="/home" className="nav-link">
-            <img src="/assets/img/logo4.png" alt="Logo" width="40" height="40" className="my-2"/><span className="px-3 logo-text align-middle">Movies</span>
+            {/* <img src="/assets/img/logo4.png" alt="Logo" width="40" height="40" className="my-2"/><span className="px-3 logo-text align-middle">Movies</span> */}
+            <img src="https://cdn-icons-png.flaticon.com/512/3698/3698776.png" alt="Logo" width="40" height="40" className="my-2"/><span className="px-3 logo-text align-middle">Movies</span>
           </NavLink>
           <div className="d-flex justify-content-between">
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" 

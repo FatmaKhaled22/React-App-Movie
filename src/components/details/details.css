@@ -54,7 +54,7 @@
     font-size: 1.2rem !important;
 }
 
-.details .rating .css-1rn30mb-MuiCircularProgress-root {
+.details .rating .css-1rn30mb-MuiCircularProgress-root , .details .css-a6xa17{
     color: #622663 !important;
     width: 65px !important;
     height: 65px !important;
